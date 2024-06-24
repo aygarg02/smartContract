@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" th:replace="base::Layout(~{::section})">
+
+<body>
+  <section>
+    <div class="container ">
+      <div class="row">
+        <div class="col-md-8 offset-md-2 ">
+          <div class="custom-text-center "> Register Here !!</div>
+          <div th:if="${message}" class="alert" th:classappend="${message.type}" role="alert">
+            <span th:text="${message.message}"></span>
+          </div>
+          <form th:action="@{/do_register}" method="post" th:object="${user}">
+             
+            <div class="form-group">
+              <label for="exampleInputEmail1">Name </label>
+              <input name="name" type="text" class="form-control" th:value="${user.name}" id="name" aria-describedby="emailHelp"
+                placeholder="Entre your name">
+
+            </div>
+
+            <div class="form-group">
+              <label for="exampleInputEmail1">Email address</label>
+              <input name="email" type="email" class="form-control" th:value="${user.email}" id="email" aria-describedby="emailHelp">
+            </div>
+
+            <div class="form-group">
+              <label for="exampleInputPassword1">Password</label>
+              <input name="password" type="password" class="form-control" th:value="${user.password}" id="Password">
+            </div>
+            <div class="form-group">
+              <textarea placeholder="entere something " rows="10" class="form-control"></textarea>
+            </div>
+            <div class="form-group text-center">
+              <input type="checkbox" name="aggrement" id="aggrement" />
+              <label for="aggrement">Accepts terms and condition</label>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="reset" class="btn btn-primary">Reset</button>
+          </form>
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </section>
+
+</body>
+
+</html>
